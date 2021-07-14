@@ -1,5 +1,7 @@
 # helm-hip6-docker
 
+[![GitHub Actions status](https://github.com/bloodorangeio/helm-hip6-docker/workflows/build/badge.svg)](https://github.com/bloodorangeio/helm-hip6-docker/actions?query=workflow%3Abuild+)
+
 Docker image containing changes in bloodorangeio:hip-6 (Helm fork)
 
 The source code for the fork is available [here](https://github.com/bloodorangeio/helm/tree/hip-6).

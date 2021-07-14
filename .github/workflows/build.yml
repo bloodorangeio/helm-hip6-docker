@@ -1,0 +1,26 @@
+name: build
+on:
+  push:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: docker build
+        run: |
+          docker build -t ghcr.io/bloodorangeio/helm:hip-6 .
+      - name: docker login
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GHCR_USER_NAME }}
+          password: ${{ secrets.GHCR_USER_TOKEN }}
+      - name: docker push
+        run: |
+          docker push ghcr.io/bloodorangeio/helm:hip-6
+      - name: clear
+        if: always()
+        run: |
+          rm -f ${HOME}/.docker/config.json
