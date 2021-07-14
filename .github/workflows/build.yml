@@ -1,7 +1,7 @@
 name: build
 on:
   push:
-    branches: this-branch-doesnt-exist
+    branches: main
 jobs:
   build:
     runs-on: ubuntu-latest
